@@ -52,6 +52,11 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel4.setText("Login");
 
         jButton1.setText("Registrar Administrador");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,6 +144,13 @@ public class FrameLogin extends javax.swing.JFrame {
         frmRegis.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnRegistroActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FrameLoginSuperAdministrador x=new FrameLoginSuperAdministrador();
+        x.setVisible(true);
+        x.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void mensaje(String mensaje){
         JOptionPane.showMessageDialog(null, mensaje);

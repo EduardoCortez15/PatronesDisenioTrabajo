@@ -6,6 +6,7 @@ package factory;
 
 import entidad.Administrador;
 import entidad.Cliente;
+import entidad.SuperAdministrador;
 import interfaces.UsuarioFactory;
 
 /**
@@ -22,6 +23,11 @@ public class AdministradorFactory implements UsuarioFactory{
     @Override
     public Administrador crearAdministrador(String nombre, String apellido) {
         return new Administrador( nombre, apellido);
+    }
+
+    @Override
+    public SuperAdministrador usarSuperAdministrador(String usuario, String contrasenia) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
