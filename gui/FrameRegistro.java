@@ -4,6 +4,8 @@ import controlador.MySqlClienteDAO;
 import controlador.MySqlUsuarioDAO;
 import entidad.Cliente;
 import entidad.Usuario;
+import factory.ClienteFactory;
+import interfaces.UsuarioFactory;
 import javax.swing.JOptionPane;
 
 public class FrameRegistro extends javax.swing.JFrame {
@@ -196,9 +198,13 @@ public class FrameRegistro extends javax.swing.JFrame {
         telefono = txtTelefono.getText();
          setPasarNombre(nombre);
          setPasarApellido(apellido);
-        //creacion de los objetos
-        Cliente clie = new Cliente(nombre, apellido, telefono, dni);
+        
+        //patron abstract factory 
+        UsuarioFactory factory=new ClienteFactory();
+        Cliente clie=factory.crearCliente(nombre, apellido, telefono, dni);
+        //Cliente clie = new Cliente(nombre, apellido, telefono, dni);
         Usuario user = new Usuario(usuario, contrasenia);
+        
         //mandar al MySqlClienteDAO
         
         if (clientDao.registroCliente_Usuario(clie, user) == true) {

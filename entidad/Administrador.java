@@ -10,8 +10,8 @@ public class Administrador {
     public Administrador() {
     }
 
-    public Administrador(int id_administrador, String nombre, String apellido) {
-        this.id_administrador = id_administrador;
+    public Administrador( String nombre, String apellido) {
+        
         this.nombre = nombre;
         this.apellido = apellido;
     }
