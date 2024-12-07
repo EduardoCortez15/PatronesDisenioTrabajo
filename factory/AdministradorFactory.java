@@ -21,8 +21,8 @@ public class AdministradorFactory implements UsuarioFactory{
     }
 
     @Override
-    public Administrador crearAdministrador(String nombre, String apellido) {
-        return new Administrador( nombre, apellido);
+    public Administrador crearAdministrador(String usuario, String contrasenia) {
+        return new Administrador( usuario, contrasenia);
     }
 
     @Override

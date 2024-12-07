@@ -6,14 +6,15 @@ public class Administrador {
     private int id_administrador;
     private String nombre;
     private String apellido;
+    private String usuario;
+    private String contrasenia;
 
     public Administrador() {
     }
 
-    public Administrador( String nombre, String apellido) {
-        
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Administrador( String usuario, String contrasenia) {
+        this.usuario = usuario;
+        this.contrasenia = contrasenia;
     }
 
     public int getId_administrador() {
@@ -39,6 +40,24 @@ public class Administrador {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    
     
     
 }

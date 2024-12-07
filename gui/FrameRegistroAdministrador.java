@@ -1,9 +1,36 @@
 
 package gui;
 
+import controlador.MySqlAdministradorDAO;
+import entidad.Administrador;
+import factory.AdministradorFactory;
+import interfaces.UsuarioFactory;
+import javax.swing.JOptionPane;
+
 public class FrameRegistroAdministrador extends javax.swing.JFrame {
 
- 
+    MySqlAdministradorDAO administradorDAO=new MySqlAdministradorDAO();
+    
+    private String userFrame;
+    private String contraFrame;
+
+    public String getUserFrame() {
+        return userFrame;
+    }
+
+    public void setUserFrame(String userFrame) {
+        this.userFrame = userFrame;
+    }
+
+    public String getContraFrame() {
+        return contraFrame;
+    }
+
+    public void setContraFrame(String contraFrame) {
+        this.contraFrame = contraFrame;
+    }
+    
+    
     public FrameRegistroAdministrador() {
         initComponents();
     }
@@ -20,7 +47,7 @@ public class FrameRegistroAdministrador extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         btnGenerarUsuario = new javax.swing.JButton();
         lblMostrarUsuario = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtContrasenia = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         btnIniciar = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
@@ -34,12 +61,22 @@ public class FrameRegistroAdministrador extends javax.swing.JFrame {
         jLabel3.setText("Apellido :");
 
         btnGenerarUsuario.setText("Generar usuario");
+        btnGenerarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarUsuarioActionPerformed(evt);
+            }
+        });
 
         lblMostrarUsuario.setText("jLabel4");
 
         jLabel4.setText("contraseña :");
 
         btnIniciar.setText("Iniciar ");
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarActionPerformed(evt);
+            }
+        });
 
         btnAtras.setText("atras");
 
@@ -60,7 +97,7 @@ public class FrameRegistroAdministrador extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(txtNombre)
                     .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1))
+                    .addComponent(txtContrasenia))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(48, 48, 48)
@@ -88,7 +125,7 @@ public class FrameRegistroAdministrador extends javax.swing.JFrame {
                 .addComponent(lblMostrarUsuario)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -100,6 +137,41 @@ public class FrameRegistroAdministrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+        
+        String nombre,apellido,usuario,contrasenia;
+        nombre=txtNombre.getText();
+        apellido=txtApellido.getText();
+        usuario=lblMostrarUsuario.getText();
+        contrasenia=txtContrasenia.getText().strip();
+        userFrame=usuario;
+        contraFrame=contrasenia;
+        UsuarioFactory factory=new AdministradorFactory();
+        Administrador administrador=factory.crearAdministrador(usuario, contrasenia);
+        administrador.setNombre(nombre);
+        administrador.setApellido(apellido);
+        if(administradorDAO.registrarAdministrador(administrador)==true){
+            mensaje("Se registro correctamente");
+            FrameLogin x=new FrameLogin();
+            x.setVisible(true);
+            x.setLocationRelativeTo(null);
+        }else{
+            mensaje("Error en el registro");
+        }
+    }//GEN-LAST:event_btnIniciarActionPerformed
+
+    private void btnGenerarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarUsuarioActionPerformed
+      String nombre,apellido,usuario;
+      nombre=txtNombre.getText();
+      apellido=txtApellido.getText();
+      usuario = nombre.substring(0, 1) + apellido;
+      lblMostrarUsuario.setText(usuario);
+      
+    }//GEN-LAST:event_btnGenerarUsuarioActionPerformed
+
+     public void mensaje(String mensaje){
+         JOptionPane.showMessageDialog(null, mensaje);
+     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -110,9 +182,9 @@ public class FrameRegistroAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblMostrarUsuario;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JPasswordField txtContrasenia;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
