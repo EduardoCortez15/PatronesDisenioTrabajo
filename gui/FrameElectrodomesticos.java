@@ -1,6 +1,9 @@
 
 package gui;
 
+import entidad.Producto;
+import javax.swing.table.DefaultTableModel;
+
 public class FrameElectrodomesticos extends javax.swing.JFrame {
 
    
@@ -17,10 +20,6 @@ public class FrameElectrodomesticos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        btnAgregar1 = new javax.swing.JButton();
-        btnAgregar2 = new javax.swing.JButton();
-        btnAgregar3 = new javax.swing.JButton();
         btnCompraUnitaria1 = new javax.swing.JButton();
         btnCompraUnitaria2 = new javax.swing.JButton();
         btnCompraUnitaria3 = new javax.swing.JButton();
@@ -57,25 +56,28 @@ public class FrameElectrodomesticos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, -1, -1));
 
-        jButton2.setText("Ir carrito");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, -1, -1));
-
-        btnAgregar1.setText("Agregar");
-        getContentPane().add(btnAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
-
-        btnAgregar2.setText("Agregar");
-        getContentPane().add(btnAgregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, -1, -1));
-
-        btnAgregar3.setText("Agregar");
-        getContentPane().add(btnAgregar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, -1));
-
         btnCompraUnitaria1.setText("Compra unitaria");
+        btnCompraUnitaria1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompraUnitaria1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCompraUnitaria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
 
         btnCompraUnitaria2.setText("Compra unitaria");
+        btnCompraUnitaria2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompraUnitaria2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCompraUnitaria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, -1, -1));
 
         btnCompraUnitaria3.setText("Compra unitaria");
+        btnCompraUnitaria3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompraUnitaria3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCompraUnitaria3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
         getContentPane().add(spiner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 40, -1));
         getContentPane().add(spiner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 420, 40, -1));
@@ -108,16 +110,67 @@ public class FrameElectrodomesticos extends javax.swing.JFrame {
         x.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnCompraUnitaria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraUnitaria1ActionPerformed
+         String nombre = "Licuadora";
+        
+       double precio = 250.00;
+       int categoria = 3;
+       int cantidad = (int)spiner1.getValue();
+       
+       Producto pro = new Producto(nombre, precio, categoria);
+       FrameCarrito x = new FrameCarrito();
+       x.txtTotal.setText(Double.toString(cantidad*precio));
+       DefaultTableModel detalle = (DefaultTableModel) x.tblCompraUnitaria.getModel();
+       Object fila[] ={nombre, precio,cantidad, categoria };
+       detalle.addRow(fila);
+       
+       x.setVisible(true);
+       x.setLocationRelativeTo(null);
+       this.dispose();
+    }//GEN-LAST:event_btnCompraUnitaria1ActionPerformed
+
+    private void btnCompraUnitaria2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraUnitaria2ActionPerformed
+         String nombre = "Cocina";
+        double precio = 700.00;
+        int categoria = 3;
+        int cantidad = (int) spiner2.getValue();
+        
+        Producto pro = new Producto(nombre, precio, categoria);
+        FrameCarrito x = new FrameCarrito();
+        x.txtTotal.setText(Double.toString(cantidad*precio));
+        DefaultTableModel detalle = (DefaultTableModel) x.tblCompraUnitaria.getModel();
+        Object fila[] = {nombre, precio, cantidad, categoria};
+        detalle.addRow(fila);
+        
+        x.setVisible(true);
+        x.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnCompraUnitaria2ActionPerformed
+
+    private void btnCompraUnitaria3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraUnitaria3ActionPerformed
+         String nombre ="Freidora de aire";
+        double precio = 160.00;
+        int categoria = 3;
+        int cantidad = (int) spiner3.getValue();
+        
+        Producto pro = new Producto(nombre, precio, categoria);
+        FrameCarrito x = new FrameCarrito();
+        x.txtTotal.setText(Double.toString(cantidad*precio));
+        DefaultTableModel detalle = (DefaultTableModel) x.tblCompraUnitaria.getModel();
+        Object fila[] ={nombre, precio, cantidad, categoria};
+        detalle.addRow(fila);
+        
+        x.setVisible(true);
+        x.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnCompraUnitaria3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar1;
-    private javax.swing.JButton btnAgregar2;
-    private javax.swing.JButton btnAgregar3;
     private javax.swing.JButton btnCompraUnitaria1;
     private javax.swing.JButton btnCompraUnitaria2;
     private javax.swing.JButton btnCompraUnitaria3;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

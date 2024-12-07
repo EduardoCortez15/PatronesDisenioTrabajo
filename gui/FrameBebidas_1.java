@@ -21,16 +21,12 @@ public class FrameBebidas_1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnCompraUnitaria3 = new javax.swing.JButton();
-        btnAgregar2 = new javax.swing.JButton();
-        btnAgregar3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnMenuPrincipal = new javax.swing.JButton();
-        btnCarrito = new javax.swing.JButton();
-        btnAgregar1 = new javax.swing.JButton();
         btnCompraUnitaria1 = new javax.swing.JButton();
         btnCompraUnitaria2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -61,12 +57,6 @@ public class FrameBebidas_1 extends javax.swing.JFrame {
         });
         getContentPane().add(btnCompraUnitaria3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
 
-        btnAgregar2.setText("Agregar");
-        getContentPane().add(btnAgregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, -1, -1));
-
-        btnAgregar3.setText("Agregar");
-        getContentPane().add(btnAgregar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, -1, -1));
-
         jLabel2.setText("Precio : 2.50");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, 20));
 
@@ -83,17 +73,6 @@ public class FrameBebidas_1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, -1, -1));
-
-        btnCarrito.setText("Ir Carrito");
-        btnCarrito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCarritoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 110, -1));
-
-        btnAgregar1.setText("Agregar");
-        getContentPane().add(btnAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
         btnCompraUnitaria1.setText("Compra unitaria");
         btnCompraUnitaria1.addActionListener(new java.awt.event.ActionListener() {
@@ -206,17 +185,9 @@ public class FrameBebidas_1 extends javax.swing.JFrame {
          this.dispose();
     }//GEN-LAST:event_btnCompraUnitaria3ActionPerformed
 
-    private void btnCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarritoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCarritoActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar1;
-    private javax.swing.JButton btnAgregar2;
-    private javax.swing.JButton btnAgregar3;
-    private javax.swing.JButton btnCarrito;
     private javax.swing.JButton btnCompraUnitaria1;
     private javax.swing.JButton btnCompraUnitaria2;
     private javax.swing.JButton btnCompraUnitaria3;

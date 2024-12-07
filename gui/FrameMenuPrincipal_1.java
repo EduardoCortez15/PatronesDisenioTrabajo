@@ -22,8 +22,6 @@ public class FrameMenuPrincipal_1 extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -31,6 +29,11 @@ public class FrameMenuPrincipal_1 extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 99, -1));
         jPanel1.add(lblMostrarNombreApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 270, 20));
 
@@ -80,12 +83,6 @@ public class FrameMenuPrincipal_1 extends javax.swing.JFrame {
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/casa.png"))); // NOI18N
         jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 50, 50));
-
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hamburguesa.png"))); // NOI18N
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 50, 50));
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hamburguesa2.png"))); // NOI18N
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 50, 50));
 
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/login.png"))); // NOI18N
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +143,13 @@ public class FrameMenuPrincipal_1 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FrameLogin x = new FrameLogin();
+        x.setVisible(true);
+        x.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
@@ -155,8 +159,6 @@ public class FrameMenuPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

@@ -48,10 +48,6 @@ public class MySqlAdministradorDAO implements AdministradorDAO {
         return valor;
     }
 
-    @Override
-    public boolean iniciarSesionAdministrador(Administrador administrador) {
-
-        return false;
-    }
+   
 
 }

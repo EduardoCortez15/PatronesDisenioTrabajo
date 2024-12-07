@@ -1,16 +1,16 @@
-
 package gui;
 
 import controlador.MySqlUsuarioDAO;
+import entidad.Administrador;
 import entidad.Cliente;
 import entidad.Usuario;
 import javax.swing.JOptionPane;
 
 public class FrameLogin extends javax.swing.JFrame {
 
-     MySqlUsuarioDAO userDAO=new MySqlUsuarioDAO();
-     public static String apellido;
-    
+    MySqlUsuarioDAO userDAO = new MySqlUsuarioDAO();
+    public static String apellido;
+
     public FrameLogin() {
         initComponents();
     }
@@ -117,42 +117,68 @@ public class FrameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        String usuario,contrasenia;
-        usuario=txtUsuario.getText();
-        contrasenia=txtContrasenia.getText().strip();
-        Usuario user=new Usuario(usuario, contrasenia);
-        if(userDAO.iniciarSesion(user)==true){
-        mensaje("Usuario correctos");
-        System.out.println("inicio sesion correcto");
-        apellido=usuario.substring(1);
-        
-        FrameMenuPrincipal_1 x=new FrameMenuPrincipal_1();
-        x.lblMostrarNombreApellido.setText("Bienvenido : "+apellido);
-        x.setVisible(true);
-        x.setLocationRelativeTo(null);
-        this.dispose();
+        String usuario, contrasenia;
+        usuario = txtUsuario.getText();
+        contrasenia = txtContrasenia.getText().strip();
+        Usuario user = new Usuario(usuario, contrasenia);
+        Administrador administrador=new Administrador(usuario, contrasenia);
+        if (userDAO.iniciarSesion(user) == true) {
+            mensaje("Usuario correctos");
+            System.out.println("inicio sesion correcto");
+            apellido = usuario.substring(1);
+
+            Object[] opciones = {"Compra unitaria", "Compra múltiple"};
+
+            // Mostrar el JOptionPane con las opciones
+            int seleccion = JOptionPane.showOptionDialog(
+                    null, // Componente padre (null indica que no tiene un padre)
+                    "¿Qué tipo de compra hará?", // El mensaje
+                    "Seleccionar tipo de compra", // Título de la ventana
+                    JOptionPane.DEFAULT_OPTION, // Tipo de opciones
+                    JOptionPane.QUESTION_MESSAGE, // Tipo de mensaje
+                    null, // Icono (null para el predeterminado)
+                    opciones, // Opciones a mostrar
+                    opciones[0] // Opción por defecto
+            );
+            if(seleccion==0){
+            FrameMenuPrincipal_1 x = new FrameMenuPrincipal_1();
+            x.lblMostrarNombreApellido.setText("Bienvenido : " + apellido);
+            x.setVisible(true);
+            x.setLocationRelativeTo(null);
+            this.dispose();    
+            }else if(seleccion==1){
+                App y=new App();
+                y.setVisible(true);
+                y.setLocationRelativeTo(null);
+                this.dispose();
+            }
+            
+        } else if(userDAO.iniciarSesionAdministrador(administrador)==true) {
+            mensaje("Usuario correctos");
+            System.out.println("inicio sesion correcto");
         }else{
             mensaje("error en el inicio ,ingrese valores validos");
+            
         }
-        
+
         this.dispose();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        FrameRegistro frmRegis= new FrameRegistro();
+        FrameRegistro frmRegis = new FrameRegistro();
         frmRegis.setVisible(true);
         frmRegis.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FrameLoginSuperAdministrador x=new FrameLoginSuperAdministrador();
+        FrameLoginSuperAdministrador x = new FrameLoginSuperAdministrador();
         x.setVisible(true);
         x.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void mensaje(String mensaje){
+    public void mensaje(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
     }
 
